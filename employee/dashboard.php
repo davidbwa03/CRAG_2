@@ -11,6 +11,12 @@ include_once("../utils/db.php");
 
 $employee_id = $_SESSION['user_id'];
 
+// Get count of applied jobs
+$countStmt = $pdo->prepare("SELECT COUNT(*) FROM applications WHERE employee_id = :eid");
+$countStmt->bindParam(":eid", $employee_id);
+$countStmt->execute();
+$total_applied = $countStmt->fetchColumn();
+
 // Fetch jobs that employee hasn't applied to
 $stmt = $pdo->prepare("
     SELECT t.id AS task_id, t.title, t.description, t.budget, t.deadline, e.company_name AS employer_name
@@ -38,16 +44,27 @@ $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php include_once("../components/header.php"); ?>
 
 <div class="container">
-    <h1>Available Jobs</h1>
+    <h1>Welcome, <?= htmlspecialchars($_SESSION['name'] ?? 'Employee'); ?></h1>
+
+    <div class="summary-box">
+        <p><strong>Tasks Applied:</strong> <?= $total_applied; ?></p>
+        <a href="my_applications.php" class="btn-secondary">View My Applications</a>
+    </div>
+
+    <hr>
+
+    <h2>Available Jobs</h2>
+
     <?php if(count($tasks) > 0): ?>
         <div class="task-list">
             <?php foreach($tasks as $task): ?>
                 <div class="task-card">
                     <h3><?= htmlspecialchars($task['title']); ?></h3>
                     <p><strong>Employer:</strong> <?= htmlspecialchars($task['employer_name']); ?></p>
-                    <p><strong>Budget:</strong> <?= number_format($task['budget'] ?? 0, 2); ?> Ksh</p>
+                    <p><strong>Budget:</strong> <?= number_format((float)$task['budget'], 2); ?> Ksh</p>
                     <p><strong>Deadline:</strong> <?= htmlspecialchars($task['deadline']); ?></p>
-                    <p><strong>Description:</strong> <?= nl2br(htmlspecialchars($task['description'])); ?></p>
+                    <p><?= nl2br(htmlspecialchars($task['description'])); ?></p>
+
                     <form action="apply_task.php" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="task_id" value="<?= $task['task_id']; ?>">
                         <label>Upload Resume:</label>
