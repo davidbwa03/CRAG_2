@@ -1,0 +1,96 @@
+/* ==========================
+   TaskFlow Auth Page Styles
+   ========================== */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 30px;
+}
+
+h4 {
+    font-weight: 700;
+    color: #007bff;
+}
+
+.btn-primary,
+.btn-success {
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    transform: scale(1.03);
+    background-color: #0056b3;
+}
+
+input.form-control {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+input.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.alert {
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+a.text-decoration-none {
+    font-weight: 500;
+    color: #007bff;
+}
+
+a.text-decoration-none:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.text-muted {
+    font-size: 0.9rem;
+}
+
+.text-secondary.small {
+    display: inline-block;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.text-secondary.small:hover {
+    color: #007bff !important;
+    text-decoration: underline;
+}
+
+/* Make forms responsive */
+@media (max-width: 768px) {
+    .card {
+        margin: 10px;
+    }
+    .card-body {
+        padding: 20px;
+    }
+}

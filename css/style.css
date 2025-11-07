@@ -1,0 +1,253 @@
+/* ===========================
+   Global Styles
+   These styles apply to the entire website
+=========================== */
+body {
+    margin: 0; /* Remove default margin */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean readable font */
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333; /* Dark text color */
+}
+
+a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+.container {
+    max-width: 1100px; /* Limit container width */
+    margin: 20px auto; /* Center container vertically */
+    padding: 0 15px; /* Horizontal padding */
+}
+
+/* ===========================
+   Header Styles
+   Logo on the right, logout on the left
+=========================== */
+.header {
+    display: flex; /* Flexbox layout */
+    justify-content: right; /* Push logo and actions to opposite ends */
+    align-items: center; /* Vertically center content */
+    padding: 8px 15px; /* Spacing inside header */
+     height: 50px;          /* fixed height for header */
+    line-height: 1;        /* remove extra vertical spacing */
+    background-color: #434952; /* Primary blue */
+    color: #fff; /* White text */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Slight shadow */
+    position: sticky; /* Stay on top when scrolling */
+    top: 0;
+    z-index: 1000; /* Ensure header is above other elements */
+    font-size: 0.9rem; /* Slightly smaller font */
+}
+
+.header .logo a {
+    color: #fff; /* Logo text color */
+    font-size: 1.3rem; /* Logo size */
+    font-weight: bold; /* Emphasize logo */
+}
+
+.header .user-actions {
+    display: flex; /* Horizontal layout for user actions */
+    align-items: center; /* Vertical alignment */
+    gap: 10px; /* Space between elements */
+}
+
+.header .user-actions .user-name {
+    font-weight: 500; /* Medium font weight for name */
+    color: #fff;
+}
+
+.header .btn-logout {
+    background-color: #fff; /* White background for logout */
+    color: #0d6efd; /* Blue text */
+    padding: 4px 10px; /* Small padding */
+    border-radius: 4px; /* Rounded corners */
+    font-weight: 500; /* Medium weight */
+    font-size: 0.85rem; /* Smaller text */
+    transition: 0.3s; /* Smooth hover effect */
+}
+
+.header .btn-logout:hover {
+    background-color: #e0e0e0; /* Light gray on hover */
+}
+
+/* ===========================
+   Buttons
+=========================== */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px; /* Rounded corners */
+    font-weight: 500;
+    text-align: center;
+    transition: 0.3s; /* Smooth hover effects */
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #0d6efd; /* Blue primary button */
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7; /* Darker blue on hover */
+}
+
+.btn-secondary {
+    
+    background-color: #6c757d; /* Gray secondary button */
+    color: #fff;
+    margin-top: 20px;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5c636a; /* Darker gray on hover */
+}
+
+/* ===========================
+   Job Cards
+=========================== */
+.job-list {
+    display: grid; /* Grid layout for job cards */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 15px; /* Space between cards */
+    margin-top: 15px;
+}
+
+.job-card {
+    background-color: #fff; /* White card background */
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.job-card:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15); /* Highlight on hover */
+}
+
+.job-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: #0d6efd; /* Blue headings */
+}
+
+.job-card p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.job-card .job-actions {
+    margin-top: 10px;
+    display: flex; /* Align buttons horizontally */
+    gap: 8px;
+}
+
+/* Edit and View buttons */
+.btn-edit {
+    background-color: #ffc107; /* Yellow for edit */
+    color: #212529;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+.btn-view {
+    background-color: #198754; /* Green for view */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.btn-view:hover {
+    background-color: #157347;
+}
+
+/* ===========================
+   Forms
+=========================== */
+form input, form select, form textarea {
+    width: 100%; /* Full width inputs */
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #ced4da; /* Light border */
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+form button {
+    width: 100%; /* Full width buttons in forms */
+}
+
+/* Header Styling */
+.header {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    justify-content: right;
+}
+
+.header .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header .user-actions .user-name {
+    font-weight: 500;
+}
+
+.header .btn-logout {
+    background-color: #fff;
+    color: #0d6efd;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.header .btn-logout:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* Footer Styling */
+.footer {
+    background-color: #0d6efd;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: #e0e0e0;
+}
+
